@@ -1,61 +1,53 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const splitText = (element) => {
-    const textContent = element.innerHTML;
-    element.innerHTML = "";
-    const textWithSpans = textContent.replace(/(\S)/g, '<span>$1</span>');
-    element.innerHTML = textWithSpans;
-  };
-  
-
-  const applyTypingEffect = (selector, delayPerChar = 50) => {
-    const targets = document.querySelectorAll(selector);
-    targets.forEach(target => {
-      splitText(target);
-      anime({
-        targets: target.querySelectorAll('span'),
-        opacity: [0, 1],
-        translateX: [30, 0],
-        easing: 'easeOutExpo',
-        duration: 100,
-        delay: (el, i) => i * delayPerChar
-      });
-    });
-  };
-
-
-  const containers = document.querySelectorAll('.texto-animado-container');
-  containers.forEach((container, index) => {
-    anime({
-      targets: container,
-      translateY: [-30, 0],
-      opacity: [0, 1],
-      easing: 'easeOutExpo',
-      duration: 800,
-      delay: index * 400
-    });
+  const tl = anime.timeline({
+    easing: 'easeOutQuart',
   });
 
-  anime({
-  targets: '.flex.flex-wrap a',
-  opacity: [0, 1],
-  translateY: [30, 0],
-  delay: anime.stagger(150, { start: 1500 }),
-  duration: 800,
-  easing: 'easeOutExpo'
-});
-
-
-  anime({
-    targets: '.flex-1',
+  tl.add({
+    targets: 'header',
+    translateY: [30, 0],
+    opacity: [0, 1],
+    duration: 1000,
+    delay: 300
+  })
+  .add({
+    targets: '.avatar-box',
     scale: [0.5, 1],
     opacity: [0, 1],
-    easing: 'easeOutExpo',
-    duration: 800,
-    delay: (el, i) => 1000 + i * 300
-  });
+    duration: 800
+  }, '-=800')
+  .add({
+    targets: '.bento-item, .cert-card',
+    translateY: [20, 0],
+    opacity: [0, 1],
+    delay: anime.stagger(120),
+    duration: 800
+  }, '-=600')
+  .add({
+    targets: '.stack-icon',
+    scale: [0.7, 1],
+    opacity: [0, 1],
+    delay: anime.stagger(50, {from: 'center'}),
+    duration: 600
+  }, '-=500');
 
-
-  setTimeout(() => {
-    applyTypingEffect('.texto-animado');
-  }, 1000);
+  const statusText = document.querySelector('footer p');
+  if (statusText) {
+    const content = statusText.innerHTML;
+    statusText.innerHTML = '';
+    statusText.style.opacity = '1';
+    let charIndex = 0;
+    
+    setTimeout(() => {
+      const typeInterval = setInterval(() => {
+        if (content.charAt(charIndex) === '<') {
+          charIndex = content.indexOf('>', charIndex) + 1;
+        } else {
+          charIndex++;
+        }
+        statusText.innerHTML = content.substring(0, charIndex);
+        if (charIndex >= content.length) clearInterval(typeInterval);
+      }, 30);
+    }, 2000);
+  }
 });
