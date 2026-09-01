@@ -1,20 +1,18 @@
 <script setup>
-import { sections } from '@/data/navigation'
 import SiteFooter from '@/components/layout/SiteFooter.vue'
 import HeroSection from '@/components/sections/HeroSection.vue'
+import AboutSection from '@/components/sections/AboutSection.vue'
 import ProjectsSection from '@/components/sections/ProjectsSection.vue'
-import AboutStackSection from '@/components/sections/AboutStackSection.vue'
-import { useChapterTracker } from '@/composables/useChapterTracker'
-
-const { activeIndex } = useChapterTracker(sections)
+import ContactSection from '@/components/sections/ContactSection.vue'
 </script>
 
 <template>
-  <div>
+  <div class="paper-grain">
     <main>
-      <HeroSection :active-index="activeIndex" />
+      <HeroSection />
+      <AboutSection />
       <ProjectsSection />
-      <AboutStackSection />
+      <ContactSection />
     </main>
 
     <SiteFooter />

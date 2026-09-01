@@ -1,19 +1,20 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-night: #0a0908;
-  --color-night-soft: #0f0d0c;
-  --color-night-raised: #15120f;
-  --color-cream: #e8dfd2;
-  --color-cream-dim: #9a9088;
-  --color-cream-faint: #6b635c;
-  --color-ember: #d4703a;
-  --color-ember-soft: #b85f30;
-  --color-rule: #26221f;
+  --color-paper: #efe9e0;
+  --color-paper-2: #e7dfd3;
+  --color-paper-3: #ddd4c6;
+  --color-ink: #171514;
+  --color-ink-soft: #56504b;
+  --color-ink-faint: #8a827a;
+  --color-teal: #2f6f6b;
+  --color-brick: #e2452c;
+  --color-rule: #cfc5b6;
 
-  --font-display: 'Oswald', 'Arial Narrow', ui-sans-serif, sans-serif;
+  --font-display: 'Anton', 'Arial Narrow', ui-sans-serif, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
-  --font-script: 'Dancing Script', cursive;
+  --font-hand: 'Caveat', cursive;
+  --font-signature: 'Ms Madi', 'Caveat', cursive;
 
   --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -24,69 +25,83 @@
   }
 
   body {
-    @apply bg-night text-cream font-mono antialiased;
+    @apply bg-paper text-ink font-mono antialiased;
     font-weight: 400;
     overflow-x: hidden;
   }
 
   :focus-visible {
-    @apply outline-2 outline-offset-4 outline-ember;
+    @apply outline-2 outline-offset-4 outline-brick;
   }
 
   ::selection {
-    @apply bg-ember text-night;
+    @apply bg-teal text-paper;
   }
 }
 
 @layer components {
   .display {
     font-family: var(--font-display);
-    font-weight: 700;
-    line-height: 0.88;
-    letter-spacing: 0.005em;
+    font-weight: 400;
+    line-height: 0.86;
+    letter-spacing: 0.01em;
     text-transform: uppercase;
   }
 
-  .meta {
-    @apply font-mono text-[10px] tracking-[0.22em] text-cream-faint uppercase;
+  .hand {
+    font-family: var(--font-hand);
+    font-weight: 600;
   }
 
-  .meta-bright {
-    @apply font-mono text-[10px] tracking-[0.22em] text-cream-dim uppercase;
+  .signature {
+    font-family: var(--font-signature);
+    font-weight: 400;
+    line-height: 1;
+    transform: rotate(-3deg);
+    transform-origin: left center;
+  }
+
+  .meta {
+    @apply font-mono text-[10px] tracking-[0.2em] text-ink-faint uppercase;
   }
 
   .body-mono {
-    @apply font-mono text-[13px] leading-[1.85] font-light text-cream-dim;
+    @apply font-mono text-[13px] leading-[1.9] font-light text-ink-soft;
   }
 
-  .link-underline {
-    @apply relative inline-flex items-center gap-3 pb-1;
+  .paper-grain {
+    position: relative;
   }
 
-  .link-underline::after {
+  .paper-grain::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.42;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.28'/%3E%3C/svg%3E");
+  }
+
+  .link-hand {
+    @apply relative inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.18em] text-ink uppercase;
+  }
+
+  .link-hand::after {
     content: '';
     position: absolute;
     inset-inline: 0;
-    bottom: 0;
+    bottom: -4px;
     height: 1px;
     background: currentColor;
     transform-origin: left;
     transition: transform 0.5s var(--ease-out-soft);
   }
 
-  .link-underline:hover::after {
+  .link-hand:hover::after {
     transform: scaleX(0);
     transform-origin: right;
-  }
-
-  .grain::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.5;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.32'/%3E%3C/svg%3E");
   }
 }
 
