@@ -4,4 +4,6 @@ import router from './router'
 import { motionDirectives } from './directives'
 import './assets/main.css'
 
-createApp(App).use(router).use(motionDirectives).mount('#app')
+const app = createApp(App).use(router).use(motionDirectives)
+
+router.isReady().then(() => app.mount('#app'))

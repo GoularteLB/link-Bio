@@ -5,7 +5,11 @@ export const profile = {
   location: 'Santa Catarina, Brasil',
   available: true,
   availabilityLabel: 'disponível para projetos',
-  tagline: 'Construo aplicações web e automação de processos de negócio.',
+  tagline: 'Desenvolvo aplicações web, APIs e automações que conectam negócios e pessoas.',
+  heroPortrait: '',
+  aboutPortrait: '',
+  aboutText:
+    'Tenho interesse em resolver problemas reais com tecnologia bem pensada e experiência de ponta a ponta.',
   bio: [
     'Desenvolvedor back-end especializado em APIs REST e sistemas escaláveis com Java e Spring Boot. Também atuo com C# e .NET, interfaces em Vue e automação de processos com Camunda (BPMN e DMN).',
     'No dia a dia aplico Clean Architecture, Domain-Driven Design, SOLID e arquitetura hexagonal para manter o código sustentável em projetos de médio e longo prazo. É o que deixa um sistema fácil de mudar depois que ele entra em produção.',

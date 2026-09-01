@@ -1,29 +1,21 @@
 <script setup>
-import { RouterView } from 'vue-router'
-import BackdropLayer from '@/components/layout/BackdropLayer.vue'
+import { computed } from 'vue'
+import { RouterView, useRoute } from 'vue-router'
+import SiteHeader from '@/components/layout/SiteHeader.vue'
+import { useSmoothScroll } from '@/composables/useSmoothScroll'
+
+const route = useRoute()
+const showHeader = computed(() => route.name === 'home')
+
+useSmoothScroll()
 </script>
 
 <template>
-  <BackdropLayer />
+  <SiteHeader v-if="showHeader" />
 
-  <RouterView v-slot="{ Component }">
-    <Transition name="page" mode="out-in">
-      <component :is="Component" />
-    </Transition>
-  </RouterView>
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <RouterView />
+    </div>
+  </div>
 </template>
-
-<style scoped>
-.page-enter-active,
-.page-leave-active {
-  transition:
-    opacity 0.35s var(--ease-out-soft),
-    transform 0.35s var(--ease-out-soft);
-}
-
-.page-enter-from,
-.page-leave-to {
-  opacity: 0;
-  transform: translateY(8px);
-}
-</style>
