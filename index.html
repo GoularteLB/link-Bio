@@ -1,168 +1,33 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lucas Goularte | FullStack Developer</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
-  
-  <style>
-    body { font-family: 'Inter', sans-serif; background-color: #0d1117; color: #e6edf3; }
-    .font-mono { font-family: 'JetBrains Mono', monospace; }
-    
-@media (max-width: 768px) {
-  header, .bento-item, .stack-icon, .cert-card, footer p {
-    opacity: 1 !important;
-  }
-}
-
-    .glass-card {
-      background: rgba(22, 27, 34, 0.95);
-      backdrop-filter: blur(10px);
-    }
-
-    .stack-icon img {
-      filter: grayscale(0.4);
-      opacity: 0.8;
-      transition: all 0.3s ease;
-    }
-    .stack-link:active .stack-icon img {
-      filter: grayscale(0);
-      opacity: 1;
-      transform: scale(1.2);
-    }
-
-    .insignia-glow {
-      position: relative;
-      overflow: hidden;
-    }
-    .insignia-glow::after {
-      content: "";
-      position: absolute;
-      top: -50%; left: -50%; width: 200%; height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-      transform: rotate(45deg);
-      animation: shimmer 3s infinite;
-    }
-    @keyframes shimmer {
-      0% { transform: translateX(-100%) rotate(45deg); }
-      100% { transform: translateX(100%) rotate(45deg); }
-    }
-  </style>
-</head>
-<body class="flex items-center justify-center min-h-screen p-4 leading-relaxed antialiased">
-
-  <div class="max-w-[380px] w-full space-y-4">
-    
-    <header class="relative overflow-hidden glass-card ring-1 ring-white/10 rounded-2xl p-8 flex flex-col items-center text-center">
-        <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
-        <div class="avatar-box w-20 h-20 bg-[#0d1117] ring-2 ring-[#30363d] rounded-2xl flex items-center justify-center mb-5 shadow-2xl">
-            <span class="text-3xl font-extrabold text-white tracking-tighter">LG</span>
-        </div>
-        <h1 class="text-2xl font-bold text-white tracking-tight">Lucas Goularte</h1>
-        <p class="font-mono text-[11px] text-blue-400 mt-1.5 font-bold uppercase tracking-widest">FullStack Developer</p>
-        <div class="flex gap-2 mt-5">
-            <span class="px-2.5 py-1 bg-[#0d1117] ring-1 ring-white/5 rounded-md text-[9px] font-bold text-gray-400 uppercase tracking-wider font-mono">SC / BR</span>
-            <span class="px-2.5 py-1 bg-green-500/10 ring-1 ring-green-500/20 rounded-md text-[9px] font-bold text-green-500 uppercase tracking-widest flex items-center gap-1.5">
-               <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> disponível
-            </span>
-        </div>
-    </header>
-
-    <div class="grid grid-cols-2 gap-3">
-        <a href="https://wa.me/554899297467" target="_blank" class="bento-item col-span-2 bg-green-500/10 border border-green-500/30 p-4 rounded-xl flex items-center justify-between active:scale-[0.98] transition-all">
-            <div class="flex items-center gap-3">
-                <div class="p-2 bg-green-500 rounded-lg shadow-[0_0_15px_rgba(34,197,94,0.3)]">
-                    <img src="images/whatsapp.png" class="w-5 h-5 brightness-0 invert" alt="WhatsApp">
-                </div>
-                <div class="flex flex-col">
-                    <span class="text-[9px] font-bold text-green-400 uppercase tracking-widest font-mono">WhatsApp</span>
-                    <span class="text-xs font-bold text-white uppercase tracking-wider">Solicitar Orçamento</span>
-                </div>
-            </div>
-            <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-
-        <a href="https://github.com/GoularteLB" target="_blank" class="bento-item bg-zinc-800 border border-zinc-700 p-5 rounded-xl flex flex-col items-center gap-2 active:scale-95 transition-all">
-            <img src="images/github.png" class="w-7 h-7 invert" alt="GitHub">
-            <span class="text-[10px] font-bold text-white uppercase tracking-widest mt-1">GitHub</span>
-        </a>
-
-        <a href="https://www.linkedin.com/in/lucas-goularte-desenv/" target="_blank" class="bento-item bg-blue-600/5 border border-blue-600/20 p-5 rounded-xl flex flex-col items-center gap-2 active:scale-95 transition-all">
-            <img src="images/linkedin.png" class="w-7 h-7 object-contain" alt="LinkedIn">
-            <span class="text-[10px] font-bold text-blue-400 uppercase tracking-widest mt-1">LinkedIn</span>
-        </a>
-
-        <a href="https://www.instagram.com/devgoularte" target="_blank" class="bento-item col-span-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-pink-500/20 p-3.5 rounded-xl flex items-center justify-center gap-3 active:scale-[0.98] transition-all">
-            <img src="images/instagram.png" class="w-4 h-4" alt="Instagram">
-            <span class="text-[10px] font-bold text-pink-400/80 uppercase tracking-[0.3em]">@devgoularte</span>
-        </a>
-    </div>
-    
-    <div class="bento-item glass-card ring-1 ring-white/10 rounded-xl overflow-hidden">
-        <div class="bg-[#0d1117]/50 px-5 py-3 border-b border-white/5">
-            <h3 class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] font-mono">// Camunda Academy</h3>
-        </div>
-        <div class="p-4 grid grid-cols-2 gap-3">
-            <a href="https://academy.camunda.com/path/c8-lp-developer" target="_blank" class="cert-card insignia-glow bg-[#0d1117] ring-1 ring-white/5 p-3 rounded-lg flex flex-col items-center text-center gap-2 border-b-2 border-orange-500/30 active:scale-95 transition-all">
-                <img src="images/camunda.png" class="w-10 h-10 object-contain" alt="Camunda Badge">
-                <span class="text-[8px] font-bold text-gray-400 uppercase tracking-tighter">BPMN Specialist</span>
-            </a>
-            <a href="https://academy.camunda.com/path/dmn-lp" target="_blank" class="cert-card insignia-glow bg-[#0d1117] ring-1 ring-white/5 p-3 rounded-lg flex flex-col items-center text-center gap-2 border-b-2 border-blue-500/30 active:scale-95 transition-all">
-                <img src="images/dmn.png" class="w-10 h-10 object-contain" alt="DMN Badge">
-                <span class="text-[8px] font-bold text-gray-400 uppercase tracking-tighter">DMN Expert</span>
-            </a>
-        </div>
-    </div>
-        <div class="bento-item glass-card ring-1 ring-white/10 rounded-xl p-4">
-    <p class="text-[9px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-4 text-center font-mono">Plataformas:</p>
-    <div class="flex justify-center gap-6 opacity-60">
-        <svg class="w-5 h-5 hover:text-blue-400 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3.449L9.75 2.1V11.4H0V3.449zm0 17.1L9.75 21.9V12.6H0v7.949zM10.65 1.95l13.35-1.95V11.4H10.65V1.95zm13.35 20.1l-13.35-1.95V12.6H24v9.45z"/></svg>
-        <svg class="w-5 h-5 hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M17.057 12.763c.018 2.628 2.274 3.51 2.304 3.522-.023.074-.355 1.218-1.155 2.385-.694 1.012-1.412 2.02-2.54 2.041-1.107.02-1.464-.648-2.73-.648-1.267 0-1.662.628-2.711.669-1.087.041-1.923-1.096-2.625-2.108-1.433-2.071-2.527-5.842-1.049-8.398.733-1.27 2.042-2.074 3.459-2.095 1.077-.02 2.093.725 2.754.725.66 0 1.912-.916 3.193-.788.536.023 2.045.215 3.012 1.633-.078.048-1.799 1.047-1.782 3.161zM14.657 4.2c.582-.705.973-1.684.865-2.664-.841.033-1.86.56-2.463 1.265-.541.626-.889 1.629-.77 2.589.94.073 1.886-.585 2.368-1.19z"/></svg>
-        <svg class="w-5 h-5 hover:text-green-500 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993s-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993s-.4482.9997-.9993.9997m11.4045-6.0264l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.41 13.8533 7.8466 12 7.8466c-1.8533 0-3.5902.5634-5.1371 1.5435l-2.0223-3.503a.416.416 0 00-.5676-.1521.416.416 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1859.4132 14.3312.0462 18h23.9077c-.3671-3.6688-2.6428-6.8141-6.0744-9.0436l-.0001.3586z"/></svg>
-        <svg class="w-5 h-5 hover:text-yellow-500 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M11.968 0c-2.479 0-4.49 1.996-4.49 4.456 0 .399.052.785.15 1.15-.558.118-1.066.398-1.465.797-.899.897-1.127 2.27-.674 3.434-.092.368-.145.753-.145 1.152 0 .584.116 1.14.324 1.649-.619.507-1.144 1.144-1.524 1.869-1.259 2.404-1.21 5.39.263 7.643-.092.368-.146.753-.146 1.151 0 .585.116 1.141.324 1.649C3.172 23.633 4.887 24 4.887 24s.193-.058.468-.205c.811.916 1.977 1.488 3.28 1.488 1.053 0 2.016-.37 2.766-.988.452.486 1.096.791 1.812.791.716 0 1.359-.304 1.811-.791.75.617 1.713.988 2.766.988 1.304 0 2.47-.572 3.28-1.488.275.147.468.205.468.205s1.715-.367.262-1.043c.209-.508.324-1.064.324-1.649 0-.398-.053-.783-.146-1.151 1.474-2.253 1.522-5.239.263-7.643-.38-.725-.905-1.362-1.524-1.869.208-.509.324-1.065.324-1.649 0-.399-.053-.784-.145-1.152.453-1.164.225-2.537-.674-3.434-.4-.399-.907-.679-1.465-.797.098-.365.15-.751.15-1.15C16.458 1.996 14.448 0 11.968 0z"/></svg>
-    </div>
-</div>
-<div class="bento-item glass-card ring-1 ring-white/10 rounded-xl p-3 flex justify-center">
-  <a href="https://app.daily.dev/lucasgoularte" target="_blank">
-    <img 
-      src="https://api.daily.dev/devcards/v2/luQTCnFOI4iGW2l5FEfXP.png?type=wide&r=23f" 
-      alt="Lucas Goularte Dev Card"
-      class="rounded-lg w-full max-w-[340px] opacity-90 hover:opacity-100 transition-all duration-300"
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#08090d" />
+    <title>Lucas Goularte | FullStack Developer</title>
+    <meta
+      name="description"
+      content="Portfolio de Lucas Goularte, desenvolvedor fullstack em Santa Catarina. Aplicacoes web, APIs e automacao de processos com Java, C#, Vue e Camunda."
     />
-  </a>
-</div>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
 
-     <div class="bento-item glass-card ring-1 ring-white/10 rounded-xl overflow-hidden">
-        <div class="bg-[#0d1117]/50 px-5 py-3 border-b border-white/5 flex items-center justify-between">
-            <h3 class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] font-mono">// Tech Stack</h3>
-            <div class="flex gap-1.5">
-                <div class="w-1.5 h-1.5 rounded-full bg-red-500/20"></div>
-                <div class="w-1.5 h-1.5 rounded-full bg-yellow-500/20"></div>
-                <div class="w-1.5 h-1.5 rounded-full bg-green-500/20"></div>
-            </div>
-        </div>
-        <div class="p-6 grid grid-cols-4 gap-y-6 gap-x-4">
-            <a href="https://learn.microsoft.com/dotnet/csharp/" target="_blank" class="stack-link"><div class="stack-icon flex justify-center"><img src="images/c-sharp-logo 1.png" class="w-7 h-7" alt="C#"></div></a>
-            <a href="https://www.java.com/" target="_blank" class="stack-link"><div class="stack-icon flex justify-center"><img src="images/java-icon-189x256-vloq963n 1.png" class="w-7 h-7" alt="Java"></div></a>
-            <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="_blank" class="stack-link"><div class="stack-icon flex justify-center"><img src="images/javascript.png" class="w-7 h-7" alt="JS"></div></a>
-            <a href="https://vuejs.org/" target="_blank" class="stack-link"><div class="stack-icon flex justify-center"><img src="images/Vector-2.png" class="w-7 h-7" alt="Vue"></div></a>
-            <a href="https://tailwindcss.com/" target="_blank" class="stack-link"><div class="stack-icon flex justify-center"><img src="images/Vector-3.png" class="w-7 h-7" alt="Tailwind"></div></a>
-            <a href="https://flutter.dev/" target="_blank" class="stack-link"><div class="stack-icon flex justify-center"><img src="images/flutter.png" class="w-7 h-7" alt="Flutter"></div></a>
-            <a href="https://dart.dev/" target="_blank" class="stack-link"><div class="stack-icon flex justify-center"><img src="images/dart.png" class="w-7 h-7" alt="Dart"></div></a>
-            <a href="https://www.mysql.com/" target="_blank" class="stack-link"><div class="stack-icon flex justify-center items-center rounded bg-[#0d1117] ring-1 ring-white/5 text-[8px] font-bold text-gray-500 uppercase h-7 w-full">SQL</div></a>
-        </div>
-    </div>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Lucas Goularte | FullStack Developer" />
+    <meta
+      property="og:description"
+      content="Aplicacoes web, APIs e automacao de processos de negocio."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
 
-    <footer class="text-center pt-2">
-        <p class="text-[9px] font-mono text-gray-600 uppercase tracking-[0.2em]">
-            status: <span class="text-green-500/70 font-bold">estavel</span> | v2.0.26
-        </p>
-    </footer>
-
-  </div>
-  <script src="script.js"></script>
-</body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
