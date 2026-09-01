@@ -2,7 +2,6 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import LinkBioCard from '@/components/sections/LinkBioCard.vue'
-import ArrowIcon from '@/components/ui/ArrowIcon.vue'
 import { gsap, prefersReducedMotion } from '@/motion/gsap'
 
 const rootRef = ref(null)
@@ -14,11 +13,10 @@ onMounted(() => {
   ctx = gsap.context(() => {
     gsap.from('[data-link-item]', {
       opacity: 0,
-      y: 22,
-      scale: 0.98,
-      duration: 0.8,
+      y: 24,
+      duration: 0.85,
       stagger: 0.07,
-      ease: 'power3.out',
+      ease: 'expo.out',
     })
   }, rootRef.value)
 })
@@ -32,19 +30,19 @@ onBeforeUnmount(() => {
 <template>
   <div
     ref="rootRef"
-    class="flex min-h-screen flex-col items-center justify-center gap-6 px-4 py-14"
+    class="flex min-h-screen flex-col items-center justify-center gap-6 px-4 py-20"
   >
     <LinkBioCard />
 
     <RouterLink
       data-link-item
+      data-cursor="link"
       to="/"
-      class="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.15em] text-ink-faint uppercase transition-colors duration-300 hover:text-accent"
+      class="group font-mono text-[11px] tracking-[0.22em] text-cream-faint uppercase transition-colors duration-300 hover:text-ember"
     >
-      <ArrowIcon
-        direction="right"
-        class="h-3.5 w-3.5 rotate-180 transition-transform duration-300 group-hover:-translate-x-0.5"
-      />
+      <span class="inline-block transition-transform duration-300 group-hover:-translate-x-1">
+        ←
+      </span>
       portfólio completo
     </RouterLink>
   </div>

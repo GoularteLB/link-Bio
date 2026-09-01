@@ -1,45 +1,43 @@
-export const stackGroups = [
+export const stackItems = [
   {
-    id: 'backend',
-    label: 'Back-end',
-    items: [
-      { name: 'Java', icon: 'java.png', href: 'https://www.java.com/' },
-      { name: 'C#', icon: 'csharp.png', href: 'https://learn.microsoft.com/dotnet/csharp/' },
-    ],
+    id: 'java',
+    name: 'Java',
+    detail: 'Back-end, APIs REST e regras de negócio em sistemas de médio e longo prazo.',
   },
   {
-    id: 'frontend',
-    label: 'Front-end',
-    items: [
-      { name: 'Vue', icon: 'vue.png', href: 'https://vuejs.org/' },
-      {
-        name: 'JavaScript',
-        icon: 'javascript.png',
-        href: 'https://developer.mozilla.org/pt-BR/docs/Web/JavaScript',
-      },
-      { name: 'Tailwind', icon: 'tailwind.png', href: 'https://tailwindcss.com/' },
-      { name: 'React', icon: 'react.png', href: 'https://react.dev/' },
-      { name: 'Flutter', icon: 'flutter.png', href: 'https://flutter.dev/' },
-      { name: 'Dart', icon: 'dart.png', href: 'https://dart.dev/' },
-    ],
+    id: 'spring',
+    name: 'Spring Boot',
+    detail: 'Serviços, segurança e persistência com Spring Data, MVC e Security.',
   },
   {
-    id: 'database',
-    label: 'Banco de Dados',
-    items: [
-      { name: 'PostgreSQL', icon: 'postgresql.svg', href: 'https://www.postgresql.org/' },
-      { name: 'MongoDB', icon: 'mongodb.svg', href: 'https://www.mongodb.com/' },
-      { name: 'MySQL', icon: 'mysql.svg', href: 'https://www.mysql.com/' },
-    ],
+    id: 'vue-ts',
+    name: 'Vue & TypeScript',
+    detail: 'Interfaces reativas com Composition API e contratos de API tipados.',
   },
   {
-    id: 'processos',
-    label: 'Processos',
-    items: [
-      { name: 'Camunda', icon: 'camunda.png', href: 'https://camunda.com/' },
-      { name: 'BPMN', abbr: 'BPMN', href: 'https://www.bpmn.org/' },
-      { name: 'DMN', icon: 'dmn.png', href: 'https://www.omg.org/dmn/' },
-    ],
+    id: 'csharp',
+    name: 'C# & .NET',
+    detail: 'Aplicações e serviços corporativos, incluindo integração com bases legadas.',
+  },
+  {
+    id: 'camunda',
+    name: 'Camunda',
+    detail: 'Modelagem BPMN, decisões em DMN e automação de processos de negócio.',
+  },
+  {
+    id: 'postgres',
+    name: 'PostgreSQL',
+    detail: 'Modelagem relacional, consultas e conversão de dados entre bases.',
+  },
+  {
+    id: 'docker',
+    name: 'Docker',
+    detail: 'Containers e ambientes reproduzíveis para desenvolvimento e entrega.',
+  },
+  {
+    id: 'git',
+    name: 'Git & CI/CD',
+    detail: 'Gitflow, GitHub e GitLab, com pipelines de integração e entrega contínuas.',
   },
 ]
 
@@ -61,12 +59,7 @@ export const certifications = [
 ]
 
 export const credentials = [
-  {
-    id: 'github-foundations',
-    title: 'GitHub Foundations',
-    issuer: 'Microsoft',
-    year: '2026',
-  },
+  { id: 'github-foundations', title: 'GitHub Foundations', issuer: 'Microsoft', year: '2026' },
   {
     id: 'santander-java',
     title: 'Bootcamp AI Java Back-end',

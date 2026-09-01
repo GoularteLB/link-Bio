@@ -43,12 +43,12 @@ arquivo nos dados (`icon: 'vue.png'`); o caminho é resolvido por
 src/
 ├── assets/main.css       # tokens de design (@theme) e estilos base
 ├── components/
-│   ├── layout/           # cabeçalho e rodapé
-│   ├── sections/         # seções da home e o card do link-bio
-│   └── ui/               # primitivos reutilizáveis (seção, tag, badge, ícone)
-├── composables/          # reveal, seção ativa, progresso, clipboard, assets
+│   ├── layout/           # SiteHeader e SiteFooter
+│   ├── sections/         # Hero, Projetos, Sobre + Stack, card do link-bio
+│   └── ui/               # MediaFrame, ArchitectureGlyph, ícones, badge
+├── composables/          # motion do hero, seção ativa, scroll suave, assets
 ├── data/                 # conteúdo do site
-├── directives/           # v-magnetic, v-spotlight, v-tilt
+├── directives/           # v-magnetic
 ├── motion/gsap.js        # registro dos plugins e defaults do GSAP
 ├── router/               # rotas
 └── views/                # HomeView, LinksView, NotFoundView
@@ -81,13 +81,23 @@ As animações usam GSAP. Os plugins são registrados uma única vez em
 
 | Onde | O quê |
 | --- | --- |
-| `useHeroMotion` | timeline de entrada com SplitText e parallax por scrub |
-| `useScrollReveal` | revelação em lote com `ScrollTrigger.batch` e stagger |
-| `useActiveSection` | item ativo do menu conforme a seção na viewport |
-| `useScrollProgress` | barra de progresso do scroll no cabeçalho |
-| `v-magnetic` | botões que acompanham o cursor |
-| `v-tilt` | inclinação 3D dos cards de projeto |
-| `v-spotlight` | brilho que segue o cursor dentro do card |
+| `useHeroMotion` | entrada do hero com SplitText e parallax por scrub |
+| `useChapterTracker` | seção ativa, alimenta o contador 01 / 05 |
+| `useSmoothScroll` | scroll suave com ScrollSmoother |
+| `MediaFrame` | foto do slot, ou fallback com spotlight e grão quando não há imagem |
+| `ArchitectureGlyph` | diagrama da arquitetura do projeto, traçado no scroll |
+| `v-magnetic` | elementos que acompanham o cursor |
+
+## Imagens
+
+`MediaFrame` aceita um arquivo em `public/images/` e cai num visual gerado
+quando o campo está vazio. Os slots ficam em `src/data/`:
+
+| Campo | Onde aparece | Proporção sugerida |
+| --- | --- | --- |
+| `profile.heroPortrait` | metade direita do hero | vertical, 3:4 ou maior |
+| `profile.aboutPortrait` | coluna central da seção Sobre | vertical, 3:4 |
+| `projects[].image` | topo de cada card de projeto | vertical, 4:5 |
 
 ## Acessibilidade e motion
 

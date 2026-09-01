@@ -1,61 +1,37 @@
-export const projects = [
+export const featuredProjects = [
   {
     id: 'incident-management',
-    title: 'Incident Management System',
+    index: '01',
+    title: 'Incident\nManagement',
     summary:
-      'Sistema de abertura e acompanhamento de chamados, com API em Java e interface web separada em repositórios de front e back.',
-    year: '2025',
-    tags: ['Java', 'Spring', 'JavaScript', 'REST'],
-    repo: 'https://github.com/GoularteLB/incident-management-system-backend',
-    demo: 'https://github.com/GoularteLB/incident-management-system-FrontEnd',
-    demoLabel: 'Front-end',
-    featured: true,
-  },
-  {
-    id: 'petclube',
-    title: 'PetClube',
-    summary:
-      'Plataforma de serviços para pets: back-end em Java e front-end em TypeScript, com cadastro de tutores, animais e agendamentos.',
-    year: '2025',
-    tags: ['Java', 'TypeScript', 'REST'],
-    repo: 'https://github.com/GoularteLB/PetClube-backend',
-    demo: 'https://github.com/GoularteLB/PetClub-Frontend',
-    demoLabel: 'Front-end',
-  },
-  {
-    id: 'hexagonal',
-    title: 'Arquitetura Hexagonal',
-    summary:
-      'Aplicação de referência para cadastro de usuários aplicando ports & adapters, com o domínio isolado de infraestrutura e frameworks.',
-    year: '2025',
-    tags: ['Java', 'Hexagonal', 'DDD'],
-    repo: 'https://github.com/GoularteLB/Arquitetura-Hexagonal',
+      'Sistema de abertura e acompanhamento de chamados, com API em Java e interface web separada.',
+    tags: ['Java', 'Spring', 'REST'],
+    image: '',
+    glyph: 'rest',
+    href: 'https://github.com/GoularteLB/incident-management-system-backend',
   },
   {
     id: 'hexagonal-kotlin',
-    title: 'Hexagonal com Kotlin',
+    index: '02',
+    title: 'Arquitetura\norientada a eventos',
     summary:
-      'Port da arquitetura hexagonal para Kotlin, explorando null safety, data classes e um domínio mais enxuto.',
-    year: '2025',
-    tags: ['Kotlin', 'Hexagonal'],
-    repo: 'https://github.com/GoularteLB/hexagonal-architecture-with-kotlin',
+      'Gestão de clientes com busca por CEP, MongoDB e validação de CPF assíncrona via Kafka.',
+    tags: ['Kotlin', 'Kafka', 'MongoDB'],
+    image: '',
+    glyph: 'events',
+    href: 'https://github.com/GoularteLB/hexagonal-architecture-with-kotlin',
   },
   {
-    id: 'integration-hexagonal',
-    title: 'Integration Hexagonal',
+    id: 'petclube',
+    index: '03',
+    title: 'PetClube\nplataforma',
     summary:
-      'Estudo de integração entre serviços mantendo o núcleo de domínio independente dos adaptadores de entrada e saída.',
-    year: '2025',
-    tags: ['Java', 'Integração'],
-    repo: 'https://github.com/GoularteLB/IntegrationHexagonal',
-  },
-  {
-    id: 'health-care',
-    title: 'Health Care',
-    summary:
-      'Projeto voltado à gestão de dados de atendimento em saúde, com modelagem de entidades clínicas e regras de acesso.',
-    year: '2024',
-    tags: ['Java', 'Backend'],
-    repo: 'https://github.com/GoularteLB/health-care',
+      'Cadastro de tutores, animais e agendamentos, com back-end Java e front-end TypeScript.',
+    tags: ['Java', 'TypeScript', 'REST'],
+    image: '',
+    glyph: 'layers',
+    href: 'https://github.com/GoularteLB/PetClube-backend',
   },
 ]
+
+export const allProjectsHref = 'https://github.com/GoularteLB?tab=repositories'

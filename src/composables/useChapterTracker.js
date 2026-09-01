@@ -1,24 +1,24 @@
 import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
-import { gsap, ScrollTrigger } from '@/motion/gsap'
+import { ScrollTrigger, gsap } from '@/motion/gsap'
 
-export function useActiveSection(sectionIds) {
-  const activeId = ref(sectionIds[0] ?? '')
+export function useChapterTracker(chapters) {
+  const activeIndex = ref(0)
   let ctx = null
 
   onMounted(async () => {
     await nextTick()
 
     ctx = gsap.context(() => {
-      sectionIds.forEach((id) => {
-        const element = document.getElementById(id)
+      chapters.forEach((chapter, position) => {
+        const element = document.getElementById(chapter.id)
         if (!element) return
 
         ScrollTrigger.create({
           trigger: element,
-          start: 'top 45%',
-          end: 'bottom 45%',
+          start: 'top 55%',
+          end: 'bottom 55%',
           onToggle: (self) => {
-            if (self.isActive) activeId.value = id
+            if (self.isActive) activeIndex.value = position
           },
         })
       })
@@ -30,5 +30,5 @@ export function useActiveSection(sectionIds) {
     ctx = null
   })
 
-  return { activeId }
+  return { activeIndex }
 }
