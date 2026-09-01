@@ -38,7 +38,7 @@ onBeforeUnmount(() => {
       data-link-item
       data-cursor="link"
       to="/"
-      class="group font-mono text-[11px] tracking-[0.22em] text-cream-faint uppercase transition-colors duration-300 hover:text-ember"
+      class="group font-mono text-[11px] tracking-[0.22em] text-ink-faint uppercase transition-colors duration-300 hover:text-brick"
     >
       <span class="inline-block transition-transform duration-300 group-hover:-translate-x-1">
         ←

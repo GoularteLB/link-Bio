@@ -1,36 +1,39 @@
-export const featuredProjects = [
+export const projects = [
   {
-    id: 'incident-management',
-    index: '01',
-    title: 'Incident\nManagement',
-    summary:
-      'Sistema de abertura e acompanhamento de chamados, com API em Java e interface web separada.',
-    tags: ['Java', 'Spring', 'REST'],
+    id: 'zh-solution-one',
+    kind: 'Plataforma',
+    title: 'ZH Solution One',
+    summary: 'Plataforma de monitoramento de sensores de NOx com dados em tempo real.',
+    tech: ['Java', 'Spring', 'PostgreSQL'],
     image: '',
-    glyph: 'rest',
-    href: 'https://github.com/GoularteLB/incident-management-system-backend',
+    href: '',
   },
   {
-    id: 'hexagonal-kotlin',
-    index: '02',
-    title: 'Arquitetura\norientada a eventos',
-    summary:
-      'Gestão de clientes com busca por CEP, MongoDB e validação de CPF assíncrona via Kafka.',
-    tags: ['Kotlin', 'Kafka', 'MongoDB'],
+    id: 'pet-club',
+    kind: 'Sistema',
+    title: 'Pet Club',
+    summary: 'Sistema para clubes de assinatura pet com gestão completa de associados.',
+    tech: ['Java', 'Spring', 'PostgreSQL'],
     image: '',
-    glyph: 'events',
-    href: 'https://github.com/GoularteLB/hexagonal-architecture-with-kotlin',
-  },
-  {
-    id: 'petclube',
-    index: '03',
-    title: 'PetClube\nplataforma',
-    summary:
-      'Cadastro de tutores, animais e agendamentos, com back-end Java e front-end TypeScript.',
-    tags: ['Java', 'TypeScript', 'REST'],
-    image: '',
-    glyph: 'layers',
     href: 'https://github.com/GoularteLB/PetClube-backend',
+  },
+  {
+    id: 'vaccine-control',
+    kind: 'Plataforma',
+    title: 'Vaccine Control',
+    summary: 'Plataforma para gestão de aplicações de vacinas e relatórios.',
+    tech: ['C#', '.NET', 'PostgreSQL'],
+    image: '',
+    href: '',
+  },
+  {
+    id: 'artif',
+    kind: 'IA',
+    title: 'Artif',
+    summary: 'Agente inteligente que ajuda no dia a dia de desenvolvedores e times.',
+    tech: ['Python', 'AI', 'API'],
+    image: '',
+    href: '',
   },
 ]
 

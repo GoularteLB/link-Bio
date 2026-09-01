@@ -6,10 +6,10 @@ export const profile = {
   available: true,
   availabilityLabel: 'disponível para projetos',
   tagline: 'Desenvolvo aplicações web, APIs e automações que conectam negócios e pessoas.',
-  heroPortrait: '',
-  aboutPortrait: '',
+  heroPhoto: 'hero.jpg',
+  aboutPhoto: '',
   aboutText:
-    'Tenho interesse em resolver problemas reais com tecnologia bem pensada e experiência de ponta a ponta.',
+    'Acredito que tecnologia tem seu verdadeiro valor quando resolve problemas reais e melhora a vida das pessoas.',
   bio: [
     'Desenvolvedor back-end especializado em APIs REST e sistemas escaláveis com Java e Spring Boot. Também atuo com C# e .NET, interfaces em Vue e automação de processos com Camunda (BPMN e DMN).',
     'No dia a dia aplico Clean Architecture, Domain-Driven Design, SOLID e arquitetura hexagonal para manter o código sustentável em projetos de médio e longo prazo. É o que deixa um sistema fácil de mudar depois que ele entra em produção.',
@@ -68,5 +68,26 @@ export const volunteering = [
     role: 'Voluntário',
     description: '',
     href: '',
+  },
+]
+
+export const values = [
+  {
+    id: 'curiosidade',
+    icon: 'spark',
+    title: 'Mente curiosa',
+    text: 'Apaixonado por aprender e resolver problemas.',
+  },
+  {
+    id: 'produto',
+    icon: 'eye',
+    title: 'Foco em produto',
+    text: 'Penso como dev, mas entrego valor como produto.',
+  },
+  {
+    id: 'comunidade',
+    icon: 'people',
+    title: 'Comunidade',
+    text: 'Acredito no poder de construir junto com outras pessoas.',
   },
 ]
