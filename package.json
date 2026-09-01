@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && node scripts/copy-spa-fallback.js",
-    "build:gh": "VITE_BASE=/link-Bio/ npm run build",
     "preview": "vite preview"
   },
   "repository": {
@@ -16,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/GoularteLB/link-Bio/issues"
   },
-  "homepage": "https://github.com/GoularteLB/link-Bio#readme",
+  "homepage": "https://lucasgoularte.com",
   "dependencies": {
     "gsap": "^3.15.0",
     "vue": "^3.5.42",
