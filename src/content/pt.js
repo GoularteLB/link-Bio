@@ -35,7 +35,7 @@ export default {
     location: 'Santa Catarina, Brasil',
     availabilityLabel: 'disponível para projetos',
     tagline: 'Desenvolvo aplicações web, APIs e automações que conectam negócios e pessoas.',
-    aboutHeading: ['Engenheiro por formação,', 'curioso por natureza.'],
+    aboutHeading: ['Curioso por natureza,', 'sistemático por escolha.'],
     aboutText: [
       'Gosto de entender problemas a fundo e transformar ideias em soluções que fazem sentido na prática.',
       'Acredito no poder de construir junto com outras pessoas.',
@@ -106,7 +106,7 @@ export default {
 
   contact: {
     eyebrow: 'Vamos conversar?',
-    heading: ['Vamos', 'fazer', 'alguma', 'coisa?'],
+    heading: ['Vamos', 'tirar', 'do papel.'],
     invite: ['Tem um projeto em mente?', 'Uma ideia maluca? Ou só quer trocar uma ideia?'],
     callout: 'Me chama!',
     badge: 'VAMOS TOMAR UM CAFÉ · ',
