@@ -38,7 +38,6 @@ onBeforeUnmount(() => {
 
     <RouterLink
       data-link-item
-      data-cursor="link"
       to="/"
       class="group font-mono text-[11px] tracking-[0.22em] text-ink-faint uppercase transition-colors duration-300 hover:text-brick"
     >

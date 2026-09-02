@@ -128,8 +128,6 @@ onBeforeUnmount(() => {
         <RouterLink
           data-case-reveal
           :to="{ name: 'projeto', params: { id: project.id } }"
-          data-cursor="link"
-          :data-cursor-label="c.ui.viewCase"
           class="link-hand w-fit transition-colors duration-300 hover:text-teal"
         >
           {{ c.case.full }}

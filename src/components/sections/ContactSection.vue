@@ -82,7 +82,6 @@ onBeforeUnmount(() => {
             :href="line.href"
             :target="line.id === 'email' ? undefined : '_blank'"
             :rel="line.id === 'email' ? undefined : 'noopener noreferrer'"
-            :data-cursor="line.cursor"
             class="group flex items-center gap-5 border-b border-rule py-5 transition-colors duration-300 hover:text-teal"
           >
             <span class="shrink-0 text-ink-soft transition-colors duration-300 group-hover:text-teal">

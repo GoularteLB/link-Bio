@@ -27,8 +27,6 @@ const year = new Date().getFullYear()
 
       <a
         href="#home"
-        data-cursor="link"
-        :data-cursor-label="c.ui.top"
         class="link-hand transition-colors duration-300 hover:text-teal"
         @click.prevent="scrollToSection('home')"
       >

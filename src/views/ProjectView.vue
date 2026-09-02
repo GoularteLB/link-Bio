@@ -86,8 +86,6 @@ onBeforeUnmount(() => {
         <RouterLink
           data-case-reveal
           :to="{ name: 'home', hash: '#projetos' }"
-          data-cursor="link"
-          :data-cursor-label="c.ui.back"
           class="link-hand transition-colors duration-300 hover:text-teal"
         >
           ← {{ c.project.allProjects }}
@@ -171,7 +169,6 @@ onBeforeUnmount(() => {
           :href="project.href"
           target="_blank"
           rel="noopener noreferrer"
-          data-cursor="external"
           class="link-hand transition-colors duration-300 hover:text-teal"
         >
           {{ c.project.repo }}
@@ -182,8 +179,6 @@ onBeforeUnmount(() => {
       <section v-if="next" class="mt-24 border-t border-rule bg-paper-2">
         <RouterLink
           :to="{ name: 'projeto', params: { id: next.id } }"
-          data-cursor="link"
-          :data-cursor-label="c.ui.viewCase"
           class="group block px-6 py-20 sm:px-10 sm:py-24"
         >
           <span class="meta">{{ c.project.nextProject }}</span>

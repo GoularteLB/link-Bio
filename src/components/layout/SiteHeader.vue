@@ -88,8 +88,6 @@ const onLeave = (el, done) => {
           v-for="link in shortcuts"
           :key="link.id"
           :href="`#${link.id}`"
-          data-cursor="link"
-          :data-cursor-label="c.ui.goTo"
           class="font-mono text-[11px] tracking-[0.16em] text-ink-soft uppercase transition-colors duration-300 hover:text-ink"
           @click.prevent="goTo(link.id)"
         >
@@ -100,8 +98,6 @@ const onLeave = (el, done) => {
       <div class="flex items-center gap-4 sm:gap-6">
         <button
           type="button"
-          data-cursor="link"
-          :data-cursor-label="themeLabel"
           class="flex h-7 w-7 items-center justify-center text-ink transition-colors duration-300 hover:text-brick"
           :aria-label="themeLabel"
           @click="toggleTheme()"
@@ -139,8 +135,6 @@ const onLeave = (el, done) => {
 
         <button
           type="button"
-          data-cursor="link"
-          :data-cursor-label="c.ui.language"
           class="font-mono text-[11px] tracking-[0.16em] text-ink-soft uppercase transition-colors duration-300 hover:text-ink"
           :aria-label="c.ui.language"
           @click="toggleLocale()"
