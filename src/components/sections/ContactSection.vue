@@ -63,7 +63,7 @@ onBeforeUnmount(() => {
         <span class="block overflow-hidden">
           <span data-contact-line class="block">
             <CircleMark color="text-brick" class="inline-block">
-              <span>{{ c.contact.heading[c.contact.heading.length - 1] }}</span>
+              <span class="whitespace-nowrap">{{ c.contact.heading[c.contact.heading.length - 1] }}</span>
             </CircleMark>
           </span>
         </span>

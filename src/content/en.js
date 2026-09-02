@@ -35,7 +35,7 @@ export default {
     location: 'Santa Catarina, Brazil',
     availabilityLabel: 'available for projects',
     tagline: 'I build web applications, APIs and automations that connect businesses and people.',
-    aboutHeading: ['Engineer by training,', 'curious by nature.'],
+    aboutHeading: ['Curious by nature,', 'systematic by choice.'],
     aboutText: [
       'I like getting to the bottom of a problem and turning ideas into solutions that hold up in practice.',
       'I believe in the power of building alongside other people.',
@@ -106,7 +106,7 @@ export default {
 
   contact: {
     eyebrow: 'Shall we talk?',
-    heading: ['Shall we', 'build', 'something', 'together?'],
+    heading: ["Let's", 'make it', 'real.'],
     invite: ['Got a project in mind?', 'A wild idea? Or just want to talk shop?'],
     callout: 'Reach out!',
     badge: "LET'S GRAB A COFFEE · ",
