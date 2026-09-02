@@ -66,7 +66,6 @@ onBeforeUnmount(() => {
           :href="c.profile.allProjectsHref"
           target="_blank"
           rel="noopener noreferrer"
-          data-cursor="external"
           class="link-hand mt-auto pt-12 transition-colors duration-300 hover:text-teal"
         >
           {{ c.stack.link }}

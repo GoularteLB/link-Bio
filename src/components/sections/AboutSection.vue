@@ -81,8 +81,6 @@ onBeforeUnmount(() => {
         <a
           data-about-reveal
           href="#projetos"
-          data-cursor="link"
-          :data-cursor-label="c.ui.goTo"
           class="link-hand w-fit transition-colors duration-300 hover:text-teal"
         >
           {{ c.about.link }}

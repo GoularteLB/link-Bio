@@ -32,7 +32,6 @@ const c = content
       :key="social.id"
       v-magnetic="0.12"
       data-link-item
-      data-cursor="external"
       :href="social.href"
       target="_blank"
       rel="noopener noreferrer"
@@ -66,7 +65,6 @@ const c = content
           :href="cert.href"
           target="_blank"
           rel="noopener noreferrer"
-          data-cursor="external"
           class="group/cert flex flex-col items-center gap-2 border border-rule p-3 text-center transition-colors duration-300 hover:border-brick/50"
         >
           <img
@@ -85,7 +83,6 @@ const c = content
 
     <a
       data-link-item
-      data-cursor="external"
       :href="c.profile.devCardHref"
       target="_blank"
       rel="noopener noreferrer"

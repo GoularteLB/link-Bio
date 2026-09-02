@@ -102,8 +102,6 @@ onBeforeUnmount(() => {
               ? {}
               : {
                   to: { name: 'projeto', params: { id: project.id } },
-                  'data-cursor': 'link',
-                  'data-cursor-label': c.ui.viewCase,
                 }
           "
           class="block overflow-hidden"
@@ -133,8 +131,6 @@ onBeforeUnmount(() => {
         <RouterLink
           v-if="!project.comingSoon"
           :to="{ name: 'projeto', params: { id: project.id } }"
-          data-cursor="link"
-          :data-cursor-label="c.ui.viewCase"
           class="link-hand mt-auto pt-2 text-[10px] transition-colors duration-300 group-hover:text-teal"
         >
           {{ c.projects.viewProject }}
@@ -150,7 +146,6 @@ onBeforeUnmount(() => {
       :href="c.profile.allProjectsHref"
       target="_blank"
       rel="noopener noreferrer"
-      data-cursor="external"
       class="link-hand mt-14 transition-colors duration-300 hover:text-teal"
     >
       {{ c.projects.allRepos }}

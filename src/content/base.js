@@ -114,21 +114,18 @@ export const contactLineBase = [
     icon: 'mail',
     label: 'goulartelucasbeluco@gmail.com',
     href: 'mailto:goulartelucasbeluco@gmail.com',
-    cursor: 'mail',
   },
   {
     id: 'linkedin',
     icon: 'linkedin',
     label: 'linkedin.com/in/lucas-goularte-desenv',
     href: 'https://www.linkedin.com/in/lucas-goularte-desenv/',
-    cursor: 'external',
   },
   {
     id: 'github',
     icon: 'github',
     label: 'github.com/GoularteLB',
     href: 'https://github.com/GoularteLB',
-    cursor: 'external',
   },
 ]
 

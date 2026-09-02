@@ -14,7 +14,6 @@ const c = content
     </p>
     <RouterLink
       v-magnetic="0.25"
-      data-cursor="link"
       to="/"
       class="border border-rule px-6 py-3 font-mono text-[11px] tracking-[0.22em] text-ink-soft uppercase transition-colors duration-300 hover:border-brick/50 hover:text-brick"
     >

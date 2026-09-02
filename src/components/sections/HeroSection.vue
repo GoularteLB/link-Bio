@@ -50,7 +50,6 @@ const year = new Date().getFullYear()
         <a
           data-hero-item
           :href="`mailto:${c.profile.email}`"
-          data-cursor="mail"
           class="link-hand mt-10 transition-colors duration-300 hover:text-teal"
         >
           {{ c.hero.cta }}

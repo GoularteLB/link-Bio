@@ -15,18 +15,9 @@ export default {
     openMenu: 'Abrir menu',
     closeMenu: 'Fechar menu',
     sections: 'Seções do site',
-    goTo: 'Ir',
-    view: 'Ver',
-    open: 'Abrir',
-    write: 'Escrever',
-    viewCase: 'Ver caso',
-    back: 'Voltar',
-    top: 'Topo',
     lightMode: 'Modo claro',
     darkMode: 'Modo escuro',
     language: 'Idioma',
-    portugueseName: 'Português',
-    englishName: 'English',
   },
 
   nav: {

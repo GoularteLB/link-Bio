@@ -2,7 +2,6 @@
 import { computed } from 'vue'
 import { RouterView, useRoute } from 'vue-router'
 import SiteHeader from '@/components/layout/SiteHeader.vue'
-import SiteCursor from '@/components/ui/SiteCursor.vue'
 import {
   refreshScrollTriggers,
   scrollToSection,
@@ -28,8 +27,6 @@ const onAfterEnter = () => {
 </script>
 
 <template>
-  <SiteCursor />
-
   <SiteHeader v-if="showHeader" />
 
   <div id="smooth-wrapper">
