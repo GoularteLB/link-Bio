@@ -9,6 +9,15 @@ export const projects = [
     href: '',
   },
   {
+    id: 'hz-crm',
+    kind: 'Sistema interno',
+    title: 'HZ CRM',
+    summary: 'CRM interno para o time de SDR ter controle de leads.',
+    tech: ['Java', 'Spring', 'PostgreSQL'],
+    image: 'projects/hz-crm.webp',
+    href: '',
+  },
+  {
     id: 'pet-club',
     kind: 'Sistema',
     title: 'Pet Club',

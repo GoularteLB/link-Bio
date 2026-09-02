@@ -62,7 +62,7 @@ const year = new Date().getFullYear()
         <PhotoFrame
           :src="profile.heroPhoto"
           :alt="`Retrato de ${profile.name}`"
-          position="62% 30%"
+          position="50% 22%"
           class="aspect-[4/5] w-full lg:aspect-auto lg:h-[62vh]"
         />
 
