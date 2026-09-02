@@ -61,6 +61,7 @@ onBeforeUnmount(() => {
           <PhotoFrame
             :src="profile.aboutPhoto"
             :alt="`Retrato de ${profile.name}`"
+            position="50% 30%"
             class="aspect-[4/3] w-56 sm:w-64"
           />
           <CircularBadge

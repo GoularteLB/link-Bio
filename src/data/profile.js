@@ -6,8 +6,8 @@ export const profile = {
   available: true,
   availabilityLabel: 'disponível para projetos',
   tagline: 'Desenvolvo aplicações web, APIs e automações que conectam negócios e pessoas.',
-  heroPhoto: 'hero.jpg',
-  aboutPhoto: '',
+  heroPhoto: 'lucas.webp',
+  aboutPhoto: 'lucas-estudio-pb.webp',
   aboutText:
     'Acredito que tecnologia tem seu verdadeiro valor quando resolve problemas reais e melhora a vida das pessoas.',
   bio: [
