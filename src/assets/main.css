@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
 @theme {
   --color-paper: #efe9e0;
   --color-paper-2: #e7dfd3;
@@ -14,9 +16,31 @@
   --font-display: 'Anton', 'Arial Narrow', ui-sans-serif, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   --font-hand: 'Caveat', cursive;
-  --font-signature: 'Ms Madi', 'Caveat', cursive;
+  --font-signature: 'Mrs Saint Delafield', 'Caveat', cursive;
 
   --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --grain-blend: multiply;
+  --grain-opacity: 0.42;
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --color-paper: #14110e;
+  --color-paper-2: #1b1714;
+  --color-paper-3: #241f1a;
+  --color-ink: #efe9e0;
+  --color-ink-soft: #b3aaa0;
+  --color-ink-faint: #7d746b;
+  --color-teal: #55a49d;
+  --color-brick: #f05a3e;
+  --color-rule: #332c25;
+
+  --grain-blend: screen;
+  --grain-opacity: 0.16;
+  color-scheme: dark;
 }
 
 @layer base {
@@ -28,6 +52,9 @@
     @apply bg-paper text-ink font-mono antialiased;
     font-weight: 400;
     overflow-x: hidden;
+    transition:
+      background-color 0.5s var(--ease-out-soft),
+      color 0.5s var(--ease-out-soft);
   }
 
   :focus-visible {
@@ -53,12 +80,12 @@
     font-weight: 600;
   }
 
-  .signature {
-    font-family: var(--font-signature);
-    font-weight: 400;
-    line-height: 1;
-    transform: rotate(-3deg);
-    transform-origin: left center;
+  .hand-display {
+    font-family: var(--font-hand);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    line-height: 1.24;
+    letter-spacing: 0.01em;
   }
 
   .meta {
@@ -67,6 +94,43 @@
 
   .body-mono {
     @apply font-mono text-[13px] leading-[1.9] font-light text-ink-soft;
+  }
+
+  .cloud-word {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    display: inline-block;
+    position: relative;
+    transition:
+      color 0.35s var(--ease-out-soft),
+      transform 0.5s var(--ease-out-soft);
+  }
+
+  .cloud-word:hover {
+    color: var(--color-teal);
+    transform: translateY(-3px);
+  }
+
+  .cloud-w1 {
+    font-size: clamp(0.85rem, 1.1vw, 1rem);
+    color: var(--color-ink-faint);
+  }
+
+  .cloud-w2 {
+    font-size: clamp(1rem, 1.5vw, 1.35rem);
+    color: var(--color-ink-soft);
+  }
+
+  .cloud-w3 {
+    font-size: clamp(1.4rem, 2.4vw, 2.1rem);
+    color: var(--color-ink);
+  }
+
+  .cloud-w4 {
+    font-size: clamp(1.9rem, 3.4vw, 3rem);
+    color: var(--color-ink);
   }
 
   .paper-grain {
@@ -79,8 +143,8 @@
     inset: 0;
     z-index: 1;
     pointer-events: none;
-    opacity: 0.42;
-    mix-blend-mode: multiply;
+    opacity: var(--grain-opacity);
+    mix-blend-mode: var(--grain-blend);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.28'/%3E%3C/svg%3E");
   }
 
@@ -102,6 +166,12 @@
   .link-hand:hover::after {
     transform: scaleX(0);
     transform-origin: right;
+  }
+
+  .photo-fallback {
+    background:
+      radial-gradient(52% 40% at 58% 32%, color-mix(in srgb, var(--color-teal) 34%, transparent), transparent 70%),
+      linear-gradient(160deg, var(--color-paper-2), var(--color-paper-3));
   }
 }
 
