@@ -5,7 +5,7 @@ export const projects = [
     title: 'ZH Solution One',
     summary: 'Plataforma de monitoramento de sensores de NOx com dados em tempo real.',
     tech: ['Java', 'Spring', 'PostgreSQL'],
-    image: '',
+    image: 'projects/zh-solution-one.webp',
     href: '',
   },
   {
@@ -14,7 +14,7 @@ export const projects = [
     title: 'Pet Club',
     summary: 'Sistema para clubes de assinatura pet com gestão completa de associados.',
     tech: ['Java', 'Spring', 'PostgreSQL'],
-    image: '',
+    image: 'projects/pet-club.webp',
     href: 'https://github.com/GoularteLB/PetClube-backend',
   },
   {
@@ -27,12 +27,13 @@ export const projects = [
     href: '',
   },
   {
-    id: 'artif',
+    id: 'artifi',
     kind: 'IA',
-    title: 'Artif',
-    summary: 'Agente inteligente que ajuda no dia a dia de desenvolvedores e times.',
+    title: 'Artifi',
+    summary:
+      'Secretária virtual com I.A que automatiza o atendimento de clínicas e consultórios.',
     tech: ['Python', 'AI', 'API'],
-    image: '',
+    image: 'projects/artifi.webp',
     href: '',
   },
 ]
