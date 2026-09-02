@@ -3,7 +3,9 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import LinkBioCard from '@/components/sections/LinkBioCard.vue'
 import { gsap, prefersReducedMotion } from '@/motion/gsap'
+import { content } from '@/i18n'
 
+const c = content
 const rootRef = ref(null)
 let ctx = null
 
@@ -43,7 +45,7 @@ onBeforeUnmount(() => {
       <span class="inline-block transition-transform duration-300 group-hover:-translate-x-1">
         ←
       </span>
-      portfólio completo
+      {{ c.links.backToPortfolio }}
     </RouterLink>
   </div>
 </template>
