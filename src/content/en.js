@@ -164,15 +164,34 @@ export default {
       summary: 'Internal CRM that gives the SDR team control over their leads.',
       role: '',
       year: '',
-      story: { problem: '', solution: '', process: '', interface: '', results: [] },
+      story: {
+        problem: 'The whole process lived in a spreadsheet that only kept growing: a new field here, a renamed column there, everyone filling it in their own way. Nobody trusted what was written in it.',
+        solution: 'We moved the process out of the spreadsheet and delivered a system with standardised fields, automations in place of the repetitive steps, stock control, prospecting tracking and a real-time lead dashboard.',
+        process: '',
+        interface: '',
+        results: [
+          'The SDR routine automated',
+          'A real-time lead dashboard',
+          'Prospecting and stock under control',
+        ],
+      },
     },
     'pet-club': {
       kind: 'System',
       title: 'Pet App',
-      summary: 'System for pet subscription clubs with full member management.',
+      summary: 'Pet vaccination monitoring system, with full history and per-clinic indicators.',
       role: '',
       year: '',
-      story: { problem: '', solution: '', process: '', interface: '', results: [] },
+      story: {
+        problem: 'Vaccination records spread across loose spreadsheets: no central data, no reliable history and no metrics at all.',
+        solution: 'We built a solution that follows each pet’s vaccination from start to finish and gives clinics clear indicators about their own care.',
+        process: '',
+        interface: '',
+        results: [
+          'Clearer, better defined processes',
+          'Visual clarity and centralised data',
+        ],
+      },
     },
     'vaccine-control': {
       kind: 'Platform',
@@ -188,7 +207,13 @@ export default {
       summary: 'AI virtual assistant that automates the front desk of clinics and medical offices.',
       role: '',
       year: '',
-      story: { problem: '', solution: '', process: '', interface: '', results: [] },
+      story: {
+        problem: 'Front desk and scheduling handled by hand, one call at a time, with every missed call turning into an empty slot.',
+        solution: 'We delivered Clara, an AI agent that books, answers, clears up doubts and gives 24/7 support to dental clinics and offices.',
+        process: '',
+        interface: '',
+        results: [],
+      },
     },
   },
 

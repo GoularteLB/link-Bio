@@ -164,15 +164,34 @@ export default {
       summary: 'CRM interno para o time de SDR ter controle de leads.',
       role: '',
       year: '',
-      story: { problem: '', solution: '', process: '', interface: '', results: [] },
+      story: {
+        problem: 'O processo todo vivia numa planilha, que só inchava: campo novo aqui, coluna renomeada ali, cada um preenchendo de um jeito. No fim, ninguém confiava no que estava escrito.',
+        solution: 'Tiramos o processo da planilha e entregamos um sistema com campos padronizados, automações no lugar das etapas repetitivas, controle de estoque, acompanhamento da prospecção e um dashboard de leads em tempo real.',
+        process: '',
+        interface: '',
+        results: [
+          'Rotina do SDR automatizada',
+          'Dashboard de leads em tempo real',
+          'Prospecção e estoque sob controle',
+        ],
+      },
     },
     'pet-club': {
       kind: 'Sistema',
       title: 'App Pet',
-      summary: 'Sistema para clubes de assinatura pet com gestão completa de associados.',
+      summary: 'Sistema de monitoramento de vacinação de pets, com histórico e indicadores por clínica.',
       role: '',
       year: '',
-      story: { problem: '', solution: '', process: '', interface: '', results: [] },
+      story: {
+        problem: 'Controle de vacinação em planilhas soltas: sem dados centralizados, sem histórico confiável e sem métrica nenhuma.',
+        solution: 'Criamos uma solução que acompanha a vacinação dos pets do início ao fim e devolve às clínicas indicadores claros sobre o próprio atendimento.',
+        process: '',
+        interface: '',
+        results: [
+          'Processos mais definidos',
+          'Clareza visual e dados centralizados',
+        ],
+      },
     },
     'vaccine-control': {
       kind: 'Plataforma',
@@ -188,7 +207,13 @@ export default {
       summary: 'Secretária virtual com I.A que automatiza o atendimento de clínicas e consultórios.',
       role: '',
       year: '',
-      story: { problem: '', solution: '', process: '', interface: '', results: [] },
+      story: {
+        problem: 'Atendimento e agendamento feitos à mão, um a um, com ligação perdida virando horário vago na agenda.',
+        solution: 'Entregamos a Clara, uma agente de I.A que agenda, atende, tira dúvidas e dá suporte 24/7 a clínicas e consultórios odontológicos.',
+        process: '',
+        interface: '',
+        results: [],
+      },
     },
   },
 
