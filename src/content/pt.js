@@ -72,6 +72,7 @@ export default {
     soon: 'até já',
     prev: 'Projetos anteriores',
     next: 'Próximos projetos',
+    page: 'Página',
   },
 
   case: {
@@ -84,6 +85,8 @@ export default {
     full: 'Ver case completo',
     empty: 'Este case ainda está sendo escrito. A página do projeto já traz a ficha técnica.',
     pick: 'Escolher o case em destaque',
+    prev: 'Case anterior',
+    next: 'Próximo case',
   },
 
   process: {
@@ -213,6 +216,23 @@ export default {
         process: '',
         interface: '',
         results: [],
+      },
+    },
+    blueprint: {
+      kind: 'Dados',
+      title: 'Ingestão em larga escala',
+      summary: 'Importação de CSVs com milhões de linhas para o PostgreSQL, com dashboard e listagem virtualizada.',
+      role: '',
+      year: '',
+      story: {
+        problem: 'Arquivos CSV de centenas de megabytes que estouram a memória quando carregados de uma vez e deixam a análise dos dados travada.',
+        solution: 'Construímos uma ingestão em streaming com Spring Boot e JDBC em batches, transações controladas e uma tabela de resumo incremental, com um front React para upload, dashboard e exploração.',
+        process: '',
+        interface: '',
+        results: [
+          '5 milhões de linhas (300 MB) importadas com o heap abaixo de 62 MiB',
+          'Vazão quase dobrada ajustando o tamanho das transações',
+        ],
       },
     },
   },

@@ -1,5 +1,5 @@
 <script setup>
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { content } from '@/i18n'
 import PhotoFrame from '@/components/ui/PhotoFrame.vue'
@@ -7,10 +7,64 @@ import CircleMark from '@/components/ui/CircleMark.vue'
 import HandArrow from '@/components/ui/HandArrow.vue'
 import { gsap, prefersReducedMotion } from '@/motion/gsap'
 
+const PAGE_SIZE = 3
+
 const c = content
 const rootRef = ref(null)
 const trackRef = ref(null)
+const page = ref(0)
 let ctx = null
+let paging = false
+
+const pageCount = computed(() => Math.ceil(c.value.projectList.length / PAGE_SIZE))
+const pageOf = (index) => Math.floor(index / PAGE_SIZE)
+const pageLabel = (value) => String(value + 1).padStart(2, '0')
+
+const isDesktop = () => window.matchMedia('(min-width: 64rem)').matches
+
+const cardsOf = (value) => trackRef.value?.querySelectorAll(`[data-card][data-page="${value}"]`) ?? []
+
+const goTo = async (next) => {
+  const target = (next + pageCount.value) % pageCount.value
+  if (target === page.value || paging) return
+
+  if (prefersReducedMotion() || !trackRef.value) {
+    page.value = target
+    return
+  }
+
+  paging = true
+  const direction = next > page.value ? 1 : -1
+  const leaving = cardsOf(page.value)
+
+  await gsap.to(leaving, {
+    opacity: 0,
+    x: -28 * direction,
+    duration: 0.35,
+    stagger: 0.05,
+    ease: 'power2.in',
+  })
+
+  page.value = target
+  gsap.set(leaving, { clearProps: 'opacity,transform' })
+  await nextTick()
+
+  gsap.fromTo(
+    cardsOf(target),
+    { opacity: 0, x: 28 * direction },
+    {
+      opacity: 1,
+      x: 0,
+      duration: 0.8,
+      stagger: 0.08,
+      ease: 'expo.out',
+      clearProps: 'transform',
+      onComplete: () => {
+        paging = false
+      },
+    },
+  )
+}
 
 const scrollBy = (direction) => {
   const track = trackRef.value
@@ -19,6 +73,8 @@ const scrollBy = (direction) => {
   const step = card ? card.offsetWidth + 20 : 320
   track.scrollBy({ left: step * direction, behavior: 'smooth' })
 }
+
+const step = (direction) => (isDesktop() ? goTo(page.value + direction) : scrollBy(direction))
 
 onMounted(() => {
   if (prefersReducedMotion() || !rootRef.value) return
@@ -63,14 +119,14 @@ onBeforeUnmount(() => {
         <span class="meta">{{ c.projects.eyebrow }}</span>
       </p>
 
-      <div data-projects-reveal class="flex gap-2 lg:hidden">
+      <div data-projects-reveal class="flex gap-2">
         <button
           v-for="dir in [-1, 1]"
           :key="dir"
           type="button"
           class="flex h-9 w-9 items-center justify-center rounded-full border border-rule text-ink transition-colors duration-300 hover:border-ink hover:bg-ink hover:text-paper"
           :aria-label="dir === -1 ? c.projects.prev : c.projects.next"
-          @click="scrollBy(dir)"
+          @click="step(dir)"
         >
           {{ dir === -1 ? '←' : '→' }}
         </button>
@@ -86,14 +142,16 @@ onBeforeUnmount(() => {
 
     <div
       ref="trackRef"
-      class="mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 lg:grid lg:grid-cols-5 lg:gap-5 lg:overflow-visible lg:pb-0"
+      class="mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 lg:grid lg:grid-cols-3 lg:gap-5 lg:overflow-visible lg:pb-0"
       style="scrollbar-width: thin"
     >
       <article
-        v-for="project in c.projectList"
+        v-for="(project, index) in c.projectList"
         :key="project.id"
         data-card
+        :data-page="pageOf(index)"
         class="group flex w-[15rem] shrink-0 snap-start flex-col gap-4 sm:w-[16.5rem] lg:w-auto"
+        :class="{ 'lg:hidden': pageOf(index) !== page }"
       >
         <component
           :is="project.comingSoon ? 'div' : RouterLink"
@@ -139,6 +197,30 @@ onBeforeUnmount(() => {
 
         <span v-else class="hand mt-auto pt-2 text-xl text-teal">{{ c.projects.soon }}</span>
       </article>
+    </div>
+
+    <div
+      v-if="pageCount > 1"
+      data-projects-reveal
+      class="mt-10 hidden items-center gap-4 lg:flex"
+    >
+      <button
+        v-for="(_, index) in pageCount"
+        :key="index"
+        type="button"
+        :aria-label="`${c.projects.page} ${index + 1}`"
+        :aria-current="index === page ? 'page' : undefined"
+        class="h-2.5 w-2.5 rounded-full border transition-all duration-300"
+        :class="
+          index === page
+            ? 'scale-125 border-brick bg-brick'
+            : 'border-ink-faint hover:border-ink'
+        "
+        @click="goTo(index)"
+      ></button>
+      <span class="font-mono text-[11px] tracking-[0.18em] text-ink-soft">
+        {{ pageLabel(page) }} / {{ pageLabel(pageCount - 1) }}
+      </span>
     </div>
 
     <a

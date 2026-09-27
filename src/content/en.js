@@ -72,6 +72,7 @@ export default {
     soon: 'soon',
     prev: 'Previous projects',
     next: 'Next projects',
+    page: 'Page',
   },
 
   case: {
@@ -84,6 +85,8 @@ export default {
     full: 'Read the full case',
     empty: 'This case is still being written. The project page already carries the technical sheet.',
     pick: 'Choose the featured case',
+    prev: 'Previous case',
+    next: 'Next case',
   },
 
   process: {
@@ -213,6 +216,23 @@ export default {
         process: '',
         interface: '',
         results: [],
+      },
+    },
+    blueprint: {
+      kind: 'Data',
+      title: 'Large-scale ingestion',
+      summary: 'Imports CSVs with millions of rows into PostgreSQL, with a dashboard and a virtualized listing.',
+      role: '',
+      year: '',
+      story: {
+        problem: 'CSV files hundreds of megabytes long that blow up memory when loaded at once and leave data analysis stuck.',
+        solution: 'We built streaming ingestion with Spring Boot and batched JDBC, controlled transactions and an incremental summary table, plus a React front end for upload, dashboard and exploration.',
+        process: '',
+        interface: '',
+        results: [
+          '5 million rows (300 MB) imported with heap under 62 MiB',
+          'Throughput nearly doubled by tuning transaction size',
+        ],
       },
     },
   },
