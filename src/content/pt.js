@@ -85,8 +85,6 @@ export default {
     full: 'Ver case completo',
     empty: 'Este case ainda está sendo escrito. A página do projeto já traz a ficha técnica.',
     pick: 'Escolher o case em destaque',
-    prev: 'Case anterior',
-    next: 'Próximo case',
   },
 
   process: {

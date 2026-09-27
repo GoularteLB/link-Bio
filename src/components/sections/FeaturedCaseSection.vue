@@ -5,17 +5,15 @@ import { content, openProjects } from '@/i18n'
 import PhotoFrame from '@/components/ui/PhotoFrame.vue'
 import ScribbleUnderline from '@/components/ui/ScribbleUnderline.vue'
 import HandArrow from '@/components/ui/HandArrow.vue'
-import { gsap, Observer, prefersReducedMotion } from '@/motion/gsap'
+import { gsap, prefersReducedMotion } from '@/motion/gsap'
 
 const STORAGE_KEY = 'lg:case'
 
 const c = content
 const rootRef = ref(null)
 const visualRef = ref(null)
-const swipeRef = ref(null)
 const active = ref(0)
 let ctx = null
-let swipe = null
 
 function readLastCase() {
   try {
@@ -53,35 +51,19 @@ const project = computed(() => queue.value[active.value] ?? queue.value[0])
 watch(() => project.value?.id, (id) => id && saveLastCase(id), { immediate: true })
 const hasResults = computed(() => project.value.story.results.length > 0)
 
-const select = (index, direction = index > active.value ? 1 : -1) => {
+const select = (index) => {
   if (index === active.value) return
   active.value = index
 
   if (prefersReducedMotion() || !visualRef.value) return
   gsap.fromTo(
     visualRef.value,
-    { opacity: 0, x: 40 * direction, y: 18, rotate: -4 },
-    { opacity: 1, x: 0, y: 0, rotate: -7, duration: 0.8, ease: 'expo.out' },
+    { opacity: 0, y: 18, rotate: -4 },
+    { opacity: 1, y: 0, rotate: -7, duration: 0.8, ease: 'expo.out' },
   )
 }
 
-const step = (direction) => {
-  const total = queue.value.length
-  select((active.value + direction + total) % total, direction)
-}
-
 onMounted(() => {
-  if (swipeRef.value) {
-    swipe = Observer.create({
-      target: swipeRef.value,
-      type: 'touch',
-      lockAxis: true,
-      tolerance: 40,
-      onLeft: () => step(1),
-      onRight: () => step(-1),
-    })
-  }
-
   if (prefersReducedMotion() || !rootRef.value) return
 
   ctx = gsap.context(() => {
@@ -106,8 +88,6 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  swipe?.kill()
-  swipe = null
   ctx?.revert()
   ctx = null
 })
@@ -125,7 +105,7 @@ onBeforeUnmount(() => {
       <span class="meta">{{ c.case.eyebrow }}</span>
     </p>
 
-    <div ref="swipeRef" class="case-swipe mt-12 grid items-center gap-12 lg:grid-cols-[0.95fr_1.2fr_0.95fr_auto] lg:gap-10">
+    <div class="mt-12 grid items-center gap-12 lg:grid-cols-[0.95fr_1.2fr_0.95fr_auto] lg:gap-10">
       <div class="flex flex-col gap-6">
         <div data-case-reveal class="flex items-start gap-4">
           <h2 class="display text-[clamp(1.7rem,2.8vw,2.3rem)] leading-[1.05] text-ink">
@@ -190,38 +170,18 @@ onBeforeUnmount(() => {
         </RouterLink>
       </div>
 
-      <div class="flex items-center justify-center gap-4 lg:flex-col">
+      <div class="flex gap-3 lg:flex-col" role="tablist" :aria-label="c.case.pick">
         <button
+          v-for="(item, index) in queue"
+          :key="item.id"
           type="button"
-          class="case-arrow"
-          :aria-label="c.case.prev"
-          @click="step(-1)"
-        >
-          ←
-        </button>
-
-        <div class="flex gap-3 lg:flex-col" role="tablist" :aria-label="c.case.pick">
-          <button
-            v-for="(item, index) in queue"
-            :key="item.id"
-            type="button"
-            role="tab"
-            :aria-selected="index === active"
-            :aria-label="item.title"
-            class="case-dot"
-            :class="{ 'is-on': index === active }"
-            @click="select(index)"
-          ></button>
-        </div>
-
-        <button
-          type="button"
-          class="case-arrow"
-          :aria-label="c.case.next"
-          @click="step(1)"
-        >
-          →
-        </button>
+          role="tab"
+          :aria-selected="index === active"
+          :aria-label="item.title"
+          class="case-dot"
+          :class="{ 'is-on': index === active }"
+          @click="select(index)"
+        ></button>
       </div>
     </div>
   </section>
@@ -236,31 +196,6 @@ onBeforeUnmount(() => {
 
 .case-visual:hover {
   transform: rotate(-4deg) translateY(-6px);
-}
-
-.case-swipe {
-  touch-action: pan-y;
-}
-
-.case-arrow {
-  display: flex;
-  width: 2.25rem;
-  height: 2.25rem;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  border: 1px solid var(--color-rule);
-  color: var(--color-ink);
-  transition:
-    background 0.3s ease,
-    border-color 0.3s ease,
-    color 0.3s ease;
-}
-
-.case-arrow:hover {
-  border-color: var(--color-ink);
-  background: var(--color-ink);
-  color: var(--color-paper);
 }
 
 .case-dot {

@@ -13,6 +13,7 @@ const c = content
 const rootRef = ref(null)
 const trackRef = ref(null)
 const page = ref(0)
+const current = ref(0)
 let ctx = null
 let paging = false
 
@@ -66,12 +67,24 @@ const goTo = async (next) => {
   )
 }
 
+const cardStep = () => {
+  const card = trackRef.value?.querySelector('[data-card]')
+  return card ? card.offsetWidth + 20 : 320
+}
+
 const scrollBy = (direction) => {
+  trackRef.value?.scrollBy({ left: cardStep() * direction, behavior: 'smooth' })
+}
+
+const scrollToCard = (index) => {
+  trackRef.value?.scrollTo({ left: cardStep() * index, behavior: 'smooth' })
+}
+
+const onTrackScroll = () => {
   const track = trackRef.value
-  if (!track) return
-  const card = track.querySelector('[data-card]')
-  const step = card ? card.offsetWidth + 20 : 320
-  track.scrollBy({ left: step * direction, behavior: 'smooth' })
+  if (!track || isDesktop()) return
+  const atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2
+  current.value = atEnd ? c.value.projectList.length - 1 : Math.round(track.scrollLeft / cardStep())
 }
 
 const step = (direction) => (isDesktop() ? goTo(page.value + direction) : scrollBy(direction))
@@ -142,15 +155,15 @@ onBeforeUnmount(() => {
 
     <div
       ref="trackRef"
-      class="mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 lg:grid lg:grid-cols-3 lg:gap-5 lg:overflow-visible lg:pb-0"
-      style="scrollbar-width: thin"
+      class="projects-track -mx-6 mt-14 flex snap-x snap-mandatory scroll-px-6 gap-5 overflow-x-auto overscroll-x-contain px-6 sm:-mx-10 sm:scroll-px-10 sm:px-10 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-5 lg:overflow-visible lg:px-0"
+      @scroll.passive="onTrackScroll"
     >
       <article
         v-for="(project, index) in c.projectList"
         :key="project.id"
         data-card
         :data-page="pageOf(index)"
-        class="group flex w-[15rem] shrink-0 snap-start flex-col gap-4 sm:w-[16.5rem] lg:w-auto"
+        class="group flex w-[78vw] max-w-[20rem] shrink-0 snap-start flex-col gap-4 lg:w-auto lg:max-w-none"
         :class="{ 'lg:hidden': pageOf(index) !== page }"
       >
         <component
@@ -199,6 +212,24 @@ onBeforeUnmount(() => {
       </article>
     </div>
 
+    <div data-projects-reveal class="mt-8 flex items-center gap-4 lg:hidden">
+      <div class="flex gap-2.5">
+        <button
+          v-for="(project, index) in c.projectList"
+          :key="project.id"
+          type="button"
+          :aria-label="project.title"
+          :aria-current="index === current ? 'true' : undefined"
+          class="h-2 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+          :class="index === current ? 'w-6 bg-brick' : 'w-2 bg-ink-faint'"
+          @click="scrollToCard(index)"
+        ></button>
+      </div>
+      <span class="font-mono text-[11px] tracking-[0.18em] text-ink-soft">
+        {{ pageLabel(current) }} / {{ pageLabel(c.projectList.length - 1) }}
+      </span>
+    </div>
+
     <div
       v-if="pageCount > 1"
       data-projects-reveal
@@ -235,3 +266,13 @@ onBeforeUnmount(() => {
     </a>
   </section>
 </template>
+
+<style scoped>
+.projects-track {
+  scrollbar-width: none;
+}
+
+.projects-track::-webkit-scrollbar {
+  display: none;
+}
+</style>

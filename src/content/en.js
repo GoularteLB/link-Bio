@@ -85,8 +85,6 @@ export default {
     full: 'Read the full case',
     empty: 'This case is still being written. The project page already carries the technical sheet.',
     pick: 'Choose the featured case',
-    prev: 'Previous case',
-    next: 'Next case',
   },
 
   process: {
