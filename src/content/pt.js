@@ -66,7 +66,7 @@ export default {
 
   projects: {
     eyebrow: 'Projetos',
-    heading: ['Coisas que', 'já construí.'],
+    heading: ['Projetos que', 'já construí.'],
     viewProject: 'Ver projeto',
     allRepos: 'Ver todos os repositórios',
     soon: 'até já',
@@ -174,6 +174,24 @@ export default {
           'Rotina do SDR automatizada',
           'Dashboard de leads em tempo real',
           'Prospecção e estoque sob controle',
+        ],
+      },
+    },
+    'zh-estoque': {
+      kind: 'Sistema interno',
+      title: 'Do insumo ao equipamento',
+      summary: 'Sistema interno de estoque e produção que acompanha cada equipamento, da compra do insumo à inspeção da unidade pronta.',
+      role: '',
+      year: '',
+      story: {
+        problem: 'A fábrica sabia o que tinha produzido, mas não com o quê. Estoque, ordens de produção e consertos viviam em lugares diferentes, e ninguém conseguia responder de onde veio uma unidade, quanto de insumo ela consumiu ou por que o saldo não batia.',
+        solution: 'Construímos um sistema em que tudo vira movimentação rastreável: a composição de cada equipamento guarda histórico por data, a ordem de produção baixa os insumos sozinha, cada unidade nasce com número de série, apontamento e inspeção, e reparos e perdas entram como ordens de serviço ligadas à unidade de origem. Por cima disso, relatórios de compras, consumo, perdas e produção com exportação em PDF, uma grade de atividade diária no estilo GitHub e acesso controlado por permissão em cada bloco da tela.',
+        process: '',
+        interface: 'A tela inicial segue um layout em bento grid: cada módulo do sistema vira um bloco do tamanho da sua importância, com o número que mais importa em destaque e um atalho direto para a área. Quem abre o sistema entende o estado da fábrica de relance, e cada bloco só aparece para quem tem permissão; quando algum some, a grade recalcula as larguras e continua fechada, sem buracos.',
+        results: [
+          'Rastreabilidade da unidade, do insumo à inspeção',
+          'Estoque que se explica: todo saldo tem extrato e auditoria',
+          'Relatórios em PDF com acesso por permissão',
         ],
       },
     },

@@ -66,7 +66,7 @@ export default {
 
   projects: {
     eyebrow: 'Work',
-    heading: ['Things I have', 'already built.'],
+    heading: ['Projects I have', 'already built.'],
     viewProject: 'View project',
     allRepos: 'See every repository',
     soon: 'soon',
@@ -174,6 +174,24 @@ export default {
           'The SDR routine automated',
           'A real-time lead dashboard',
           'Prospecting and stock under control',
+        ],
+      },
+    },
+    'zh-estoque': {
+      kind: 'Internal system',
+      title: 'From raw material to equipment',
+      summary: 'Internal stock and production system that follows every piece of equipment, from buying the raw material to inspecting the finished unit.',
+      role: '',
+      year: '',
+      story: {
+        problem: 'The factory knew what it had built, but not what it had built it with. Stock, production orders and repairs lived in different places, and nobody could say where a unit came from, how much material it used or why the balance never matched.',
+        solution: 'We built a system where everything becomes a traceable movement: each product\'s bill of materials keeps a dated history, the production order consumes its materials automatically, every unit is born with a serial number, a production record and an inspection, and repairs and losses come in as service orders tied to the original unit. On top of that sit purchase, consumption, loss and production reports with PDF export, a GitHub-style daily activity grid and permission-based access to every block on screen.',
+        process: '',
+        interface: 'The home screen follows a bento grid layout: each module becomes a block sized by its importance, with the number that matters most up front and a shortcut straight into that area. Anyone opening the system reads the state of the factory at a glance, and each block only shows up for people who have permission to see it; when one is hidden, the grid recalculates the widths and stays complete, with no gaps.',
+        results: [
+          'Unit traceability, from raw material to inspection',
+          'Stock that explains itself: every balance has a ledger and an audit trail',
+          'PDF reports with permission-based access',
         ],
       },
     },

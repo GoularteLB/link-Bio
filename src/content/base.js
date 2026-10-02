@@ -33,8 +33,17 @@ export const projectBase = [
     href: '',
   },
   {
-    id: 'pet-club',
+    id: 'zh-estoque',
     index: '03',
+    product: 'ZH Estoque',
+    tech: ['Java', 'Spring', 'Next.js', 'PostgreSQL'],
+    image: 'projects/zh-estoque.webp',
+    gallery: [],
+    href: '',
+  },
+  {
+    id: 'pet-club',
+    index: '04',
     product: 'Pet Club',
     tech: ['Java', 'Spring', 'PostgreSQL'],
     image: 'projects/pet-club.webp',
@@ -43,7 +52,7 @@ export const projectBase = [
   },
   {
     id: 'artifi',
-    index: '04',
+    index: '05',
     product: 'Artifi',
     tech: ['N8N', 'Java', 'API'],
     image: 'projects/artifi.webp',
@@ -52,7 +61,7 @@ export const projectBase = [
   },
   {
     id: 'blueprint',
-    index: '05',
+    index: '06',
     product: 'Blueprint',
     tech: ['Java', 'Spring', 'PostgreSQL', 'React'],
     image: 'projects/blueprint.webp',
@@ -61,7 +70,7 @@ export const projectBase = [
   },
   {
     id: 'vaccine-control',
-    index: '06',
+    index: '07',
     product: 'Vaccine Control',
     tech: ['Java', 'Spring', 'PostgreSQL'],
     image: '',
