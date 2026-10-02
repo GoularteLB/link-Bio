@@ -155,7 +155,7 @@ onBeforeUnmount(() => {
 
     <div
       ref="trackRef"
-      class="projects-track -mx-6 mt-14 flex snap-x snap-mandatory scroll-px-6 gap-5 overflow-x-auto overscroll-x-contain px-6 sm:-mx-10 sm:scroll-px-10 sm:px-10 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-5 lg:overflow-visible lg:px-0"
+      class="projects-track -mx-6 mt-14 flex snap-x snap-mandatory scroll-px-6 gap-5 overflow-x-auto overflow-y-hidden overscroll-x-contain px-6 pb-2 sm:-mx-10 sm:scroll-px-10 sm:px-10 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-5 lg:overflow-visible lg:px-0 lg:pb-0"
       @scroll.passive="onTrackScroll"
     >
       <article
